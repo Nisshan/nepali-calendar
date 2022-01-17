@@ -273,7 +273,7 @@ class NepaliCalendar
         return $this->englishDate;
     }
 
-    private function getDateOfWeek(int $day): int|string
+    private function getDateOfWeek(int $day): string
     {
         return match ($day) {
             1 => "Sunday",
@@ -304,7 +304,7 @@ class NepaliCalendar
         };
     }
 
-    private function getNepaliMonthName(int $month): bool|string
+    private function getNepaliMonthName(int $month): string
     {
         return match ($month) {
             1 => "Baishak",
@@ -324,7 +324,7 @@ class NepaliCalendar
 
     //todo when nepali date is moved to config end date needs to be checked and make it dynamic
 
-    private function isInEnglishRange(int $yy, int $mm, int $dd): bool|string
+    private function isInEnglishRange(int $yy, int $mm, int $dd): bool
     {
         if ($yy < 1440 || $yy > 2033) {
             throw new InvalidArgumentException('Supported only between 1940-2033');
@@ -338,7 +338,7 @@ class NepaliCalendar
         return TRUE;
     }
 
-    private function isInNepaliRange(int $yy, int $mm, int $dd): bool|string
+    private function isInNepaliRange(int $yy, int $mm, int $dd): bool
     {
         if ($yy < 2000 || $yy > 2089) {
             throw new InvalidArgumentException('Supported only between 2000-2089');
