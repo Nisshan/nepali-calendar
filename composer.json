@@ -1,17 +1,17 @@
 {
-    "name": ":vendor_slug/:package_slug",
-    "description": ":package_description",
+    "name": "nisshan/nepali-calendar",
+    "description": "It converts date from english to nepali and vice-versa",
     "keywords": [
-        ":vendor_name",
+        "Nisshan",
         "laravel",
-        ":package_slug"
+        "nepali-calendar"
     ],
-    "homepage": "https://github.com/:vendor_slug/:package_slug",
+    "homepage": "https://github.com/nisshan/nepali-calendar",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": "author@domain.com",
+            "name": "nisshan",
+            "email": "timsinanishan1@gmail.com",
             "role": "Developer"
         }
     ],
@@ -34,13 +34,13 @@
     },
     "autoload": {
         "psr-4": {
-            "VendorName\\Skeleton\\": "src",
-            "VendorName\\Skeleton\\Database\\Factories\\": "database/factories"
+            "Nisshan\\NepaliCalendar\\": "src",
+            "Nisshan\\NepaliCalendar\\Database\\Factories\\": "database/factories"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "VendorName\\Skeleton\\Tests\\": "tests"
+            "Nisshan\\NepaliCalendar\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -54,10 +54,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "VendorName\\Skeleton\\SkeletonServiceProvider"
+                "Nisshan\\NepaliCalendar\\NepaliCalendarServiceProvider"
             ],
             "aliases": {
-                "Skeleton": "VendorName\\Skeleton\\Facades\\Skeleton"
+                "NepaliCalendar": "Nisshan\\NepaliCalendar\\Facades\\NepaliCalendar"
             }
         }
     },

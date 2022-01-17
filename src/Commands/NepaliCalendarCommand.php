@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton\Commands;
+namespace Nisshan\NepaliCalendar\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class NepaliCalendarCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'nepali-calendar';
 
     public $description = 'My command';
 
