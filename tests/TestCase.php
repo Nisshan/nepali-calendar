@@ -3,8 +3,8 @@
 namespace Nisshan\NepaliCalendar\Tests;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Orchestra\Testbench\TestCase as Orchestra;
 use Nisshan\NepaliCalendar\NepaliCalendarServiceProvider;
+use Orchestra\Testbench\TestCase as Orchestra;
 
 class TestCase extends Orchestra
 {

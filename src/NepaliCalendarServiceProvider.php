@@ -2,9 +2,9 @@
 
 namespace Nisshan\NepaliCalendar;
 
+use Nisshan\NepaliCalendar\Commands\NepaliCalendarCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Nisshan\NepaliCalendar\Commands\NepaliCalendarCommand;
 
 class NepaliCalendarServiceProvider extends PackageServiceProvider
 {
