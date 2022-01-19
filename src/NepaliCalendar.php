@@ -6,7 +6,6 @@ use InvalidArgumentException;
 
 class NepaliCalendar
 {
-
     //will transfer this to config at later point
     private array $nepaliDates = [
         0 => [2000, 30, 32, 31, 32, 31, 30, 30, 30, 29, 30, 29, 31],
