@@ -12,9 +12,9 @@ it('converts to date in y/m/d format with custom separator', function () {
     $this->assertEquals('2078/10/03', $nepaliDate);
 });
 
-it('converts date using helper function with default separator', function (){
-   $nepaliDate = toNepaliDate(2022, 1, 17);
-   $this->assertEquals('2078-10-03', $nepaliDate);
+it('converts date using helper function with default separator', function () {
+    $nepaliDate = toNepaliDate(2022, 1, 17);
+    $this->assertEquals('2078-10-03', $nepaliDate);
 });
 
 
