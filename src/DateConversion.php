@@ -22,7 +22,7 @@ class DateConversion
     #[Pure]
     public static function convert($year, $month, $day, $separator = null): self
     {
-     return new static($year, $month, $day, $separator);
+        return new static($year, $month, $day, $separator);
     }
 
     public function toNepali(): string
