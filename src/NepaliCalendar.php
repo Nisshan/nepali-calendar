@@ -6,18 +6,18 @@ use InvalidArgumentException;
 
 class NepaliCalendar
 {
-    //will transfer this to config at later point
+    //todo: will transfer this to config at later point and try to think of adding date validation in dynamic ways
     private array $nepaliDates = [
-        0 => [2000, 30, 32, 31, 32, 31, 30, 30, 30, 29, 30, 29, 31],
-        1 => [2001, 31, 31, 32, 31, 31, 31, 30, 29, 30, 29, 30, 30],
-        2 => [2002, 31, 31, 32, 32, 31, 30, 30, 29, 30, 29, 30, 30],
-        3 => [2003, 31, 32, 31, 32, 31, 30, 30, 30, 29, 29, 30, 31],
-        4 => [2004, 30, 32, 31, 32, 31, 30, 30, 30, 29, 30, 29, 31],
-        5 => [2005, 31, 31, 32, 31, 31, 31, 30, 29, 30, 29, 30, 30],
-        6 => [2006, 31, 31, 32, 32, 31, 30, 30, 29, 30, 29, 30, 30],
-        7 => [2007, 31, 32, 31, 32, 31, 30, 30, 30, 29, 29, 30, 31],
-        8 => [2008, 31, 31, 31, 32, 31, 31, 29, 30, 30, 29, 29, 31],
-        9 => [2009, 31, 31, 32, 31, 31, 31, 30, 29, 30, 29, 30, 30],
+        0 =>  [2000, 30, 32, 31, 32, 31, 30, 30, 30, 29, 30, 29, 31],
+        1 =>  [2001, 31, 31, 32, 31, 31, 31, 30, 29, 30, 29, 30, 30],
+        2 =>  [2002, 31, 31, 32, 32, 31, 30, 30, 29, 30, 29, 30, 30],
+        3 =>  [2003, 31, 32, 31, 32, 31, 30, 30, 30, 29, 29, 30, 31],
+        4 =>  [2004, 30, 32, 31, 32, 31, 30, 30, 30, 29, 30, 29, 31],
+        5 =>  [2005, 31, 31, 32, 31, 31, 31, 30, 29, 30, 29, 30, 30],
+        6 =>  [2006, 31, 31, 32, 32, 31, 30, 30, 29, 30, 29, 30, 30],
+        7 =>  [2007, 31, 32, 31, 32, 31, 30, 30, 30, 29, 29, 30, 31],
+        8 =>  [2008, 31, 31, 31, 32, 31, 31, 29, 30, 30, 29, 29, 31],
+        9 =>  [2009, 31, 31, 32, 31, 31, 31, 30, 29, 30, 29, 30, 30],
         10 => [2010, 31, 31, 32, 32, 31, 30, 30, 29, 30, 29, 30, 30],
         11 => [2011, 31, 32, 31, 32, 31, 30, 30, 30, 29, 29, 30, 31],
         12 => [2012, 31, 31, 31, 32, 31, 31, 29, 30, 30, 29, 30, 30],
@@ -108,11 +108,6 @@ class NepaliCalendar
     private array $nepaliDate = ['year' => '', 'month' => '', 'date' => '', 'day' => '', 'nmonth' => '', 'num_day' => ''];
     private array $englishDate = ['year' => '', 'month' => '', 'date' => '', 'day' => '', 'emonth' => '', 'num_day' => ''];
 
-
-//    public  static function fromDate() : self
-//    {
-//        return new  static();
-//    }
 
     public function englishToNepali(int $yy, int $mm, int $dd): array
     {
@@ -324,8 +319,6 @@ class NepaliCalendar
             12 => "Chaitra",
         };
     }
-
-    //todo when nepali date is moved to config end date needs to be checked and make it dynamic
 
     private function isInEnglishRange(int $yy, int $mm, int $dd): bool
     {
