@@ -6,6 +6,7 @@ use InvalidArgumentException;
 
 class NepaliCalendar
 {
+
     //will transfer this to config at later point
     private array $nepaliDates = [
         0 => [2000, 30, 32, 31, 32, 31, 30, 30, 30, 29, 30, 29, 31],
@@ -99,6 +100,11 @@ class NepaliCalendar
         88 => [2088, 30, 31, 32, 32, 30, 31, 30, 30, 29, 30, 30, 30],
         89 => [2089, 30, 32, 31, 32, 31, 30, 30, 30, 29, 30, 30, 30],
         90 => [2090, 30, 32, 31, 32, 31, 30, 30, 30, 29, 30, 30, 30],
+//        91 => [2091, 31, 31, 32, 32, 31, 30, 30, 29, 30, 29, 30, 30], will only uncomment when i make this dynamic and store in config
+//        92 => [2092, 30, 31, 32, 32, 31, 30, 30, 30, 29, 30, 30, 30],
+//        93 => [2093, 30, 32, 31, 32, 31, 30, 30, 30, 29, 29, 30, 30],
+//        94 => [2094, 31, 31, 32, 31, 31, 30, 30, 30, 29, 30, 30, 30],
+//        95 => [2095, 31, 31, 32, 31, 31, 31, 30, 29, 30, 30, 30, 30]
     ];
     private array $nepaliDate = ['year' => '', 'month' => '', 'date' => '', 'day' => '', 'nmonth' => '', 'num_day' => ''];
     private array $englishDate = ['year' => '', 'month' => '', 'date' => '', 'day' => '', 'emonth' => '', 'num_day' => ''];
