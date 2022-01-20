@@ -2,15 +2,11 @@
 
 namespace Nisshan\NepaliCalendar;
 
-use JetBrains\PhpStorm\Pure;
-
 class DateConversion
 {
     private string $date;
     private string|null $format;
-//    private int $month;
-//    private int $day;
-//    private null|string $separator;
+
 
     public function __construct(string $date, string|null $format)
     {
@@ -18,7 +14,6 @@ class DateConversion
         $this->format = $format;
     }
 
-    #[Pure]
     public static function convert($date, $format = null): self
     {
         return new static($date, $format);
