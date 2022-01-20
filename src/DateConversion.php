@@ -7,7 +7,6 @@ class DateConversion
     private string $date;
     private string|null $format;
 
-
     public function __construct(string $date, string|null $format)
     {
         $this->date = $date;
