@@ -13,8 +13,8 @@ class NepaliCalendar
         $this->nepaliDates = config('nepali-calendar.nepali-dates');
     }
 
-    private array $nepaliDate = ['year' => '', 'month' => '', 'date' => '', 'day' => '', 'nmonth' => '', 'num_day' => ''];
-    private array $englishDate = ['year' => '', 'month' => '', 'date' => '', 'day' => '', 'emonth' => '', 'num_day' => ''];
+    private array $nepaliDate = ['year' => '', 'month' => '', 'date' => '', 'day' => '', 'mname' => '', 'num_day' => ''];
+    private array $englishDate = ['year' => '', 'month' => '', 'date' => '', 'day' => '', 'mname' => '', 'num_day' => ''];
 
     public function englishToNepali(int $yy, int $mm, int $dd): array
     {
@@ -105,7 +105,7 @@ class NepaliCalendar
         $this->nepaliDate['month'] = $m <= 9 ? "0" . $m : $m;
         $this->nepaliDate['date'] = $total_nDays <= 9 ? "0" . $total_nDays : $total_nDays;
         $this->nepaliDate['day'] = $this->getDateOfWeek($day);
-        $this->nepaliDate['nmonth'] = $this->getNepaliMonthName($m);
+        $this->nepaliDate['mname'] = $this->getNepaliMonthName($m);
         $this->nepaliDate['num_day'] = $numDay;
 
         return $this->nepaliDate;
@@ -172,7 +172,7 @@ class NepaliCalendar
         $this->englishDate['month'] = $m;
         $this->englishDate['date'] = $total_eDays;
         $this->englishDate['day'] = $this->getDateOfWeek($day);
-        $this->englishDate['emonth'] = $this->getEnglishMonth($m);
+        $this->englishDate['mname'] = $this->getEnglishMonth($m);
         $this->englishDate['num_day'] = $numDay;
 
         return $this->englishDate;
@@ -180,7 +180,7 @@ class NepaliCalendar
 
     private function getDateOfWeek(int $day): string
     {
-        return match ($day) {
+        return[
             1 => "Sunday",
             2 => "Monday",
             3 => "Tuesday",
@@ -188,12 +188,15 @@ class NepaliCalendar
             5 => "Thursday",
             6 => "Friday",
             7 => "Saturday",
-        };
+        ][$day];
+
+
+
     }
 
     private function getEnglishMonth(int $month): string
     {
-        return match ($month) {
+        return [
             1 => "January",
             2 => "February",
             3 => "March",
@@ -206,12 +209,12 @@ class NepaliCalendar
             10 => "October",
             11 => "November",
             12 => "December",
-        };
+        ][$month];
     }
 
     private function getNepaliMonthName(int $month): string
     {
-        return match ($month) {
+        return [
             1 => "Baishak",
             2 => "Jestha",
             3 => "Ashad",
@@ -224,7 +227,7 @@ class NepaliCalendar
             10 => "Magh",
             11 => "Falgun",
             12 => "Chaitra",
-        };
+        ][$month];
     }
 
     private function isInEnglishRange(int $yy, int $mm, int $dd): bool

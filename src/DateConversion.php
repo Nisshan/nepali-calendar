@@ -6,49 +6,80 @@ use JetBrains\PhpStorm\Pure;
 
 class DateConversion
 {
-    private int $year;
-    private int $month;
-    private int $day;
-    private null|string $separator;
+    private string $date;
+    private string|null $format;
+//    private int $month;
+//    private int $day;
+//    private null|string $separator;
 
-    public function __construct(int $year, int $month, int $day, string|null $separator)
+    public function __construct(string $date, string|null $format)
     {
-        $this->year = $year;
-        $this->month = $month;
-        $this->day = $day;
-        $this->separator = $separator;
+        $this->date = $date;
+        $this->format = $format;
+
     }
 
     #[Pure]
-    public static function convert($year, $month, $day, $separator = null): self
+    public static function convert($date, $format= null): self
     {
-        return new static($year, $month, $day, $separator);
+        return new static($date, $format);
     }
 
     public function toNepali(): string
     {
+        $date = $this->changeDateFormat();
         $calendar = new NepaliCalendar();
-        $nepaliDate = $calendar->englishToNepali($this->year, $this->month, $this->day);
+        $nepaliDate = $calendar->englishToNepali($date[0], $date[1], $date[2]);
 
         return $this->formatDate($nepaliDate);
     }
 
     public function toEnglish(): string
     {
+        $date = $this->changeDateFormat();
         $calendar = new NepaliCalendar();
-        $englishDate = $calendar->nepaliToEnglish($this->year, $this->month, $this->day);
+        $englishDate = $calendar->nepaliToEnglish($date[0], $date[1], $date[2]);
 
         return $this->formatDate($englishDate);
     }
 
-    //todo: to return format based on string format passed as parameter
     private function formatDate($date): string
     {
-        $separator = $this->separator ?: config('nepali-calendar.date-separator');
-        $year = $date['year'];
-        $month = $date['month'];
-        $day = $date['date'];
+        $dateFormat = $this->explodeFormat();
 
-        return $year . $separator . $month . $separator . $day;
+        return collect($dateFormat)->reduce(function ($formatedDate, $part) use($date){
+            return $formatedDate . $this->dateLookupTable($date, $part);
+        });
     }
+
+    private function changeDateFormat(): array
+    {
+        return explode('-', $this->date);
+    }
+
+    private function explodeFormat() : array
+    {
+        $format =  $this->format ?: config('nepali-calendar.date-format');
+
+        return str_split($format);
+    }
+
+    private function dateLookupTable($date, $format) : string|null
+    {
+        if(!in_array($format, ['Y','M','D','d','m','y']))
+        {
+            return $format;
+        }
+
+       return [
+            'Y' => $date['year'],
+            'y' => $date['year'],
+            'M' => $date['mname'],
+            'D' => $date['day'],
+            'd' => $date['date'],
+            'm' => $date['month'],
+        ][$format];
+    }
+
+
 }

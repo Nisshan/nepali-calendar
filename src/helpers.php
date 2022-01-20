@@ -3,15 +3,15 @@
 use Nisshan\NepaliCalendar\DateConversion;
 
 if (! function_exists('toNepaliDate')) {
-    function toNepaliDate(int $year, int $month, int $day, string|null $separator = null): string
+    function toNepaliDate(string $date,  string|null $format = null): string
     {
-        return DateConversion::convert($year, $month, $day, $separator)->toNepali();
+        return DateConversion::convert($date,  $format)->toNepali();
     }
 }
 
 if (! function_exists('toEnglishDate')) {
-    function toEnglishDate(int $year, int $month, int $day, string|null $separator = null): string
+    function toEnglishDate(string $date,  string|null $format = null): string
     {
-        return DateConversion::convert($year, $month, $day, $separator)->toEnglish();
+        return DateConversion::convert($date,  $format)->toEnglish();
     }
 }

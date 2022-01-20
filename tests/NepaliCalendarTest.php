@@ -11,7 +11,7 @@ it('convert today english date to nepali', function () {
         "month" => 10,
         "date" => "03",
         "day" => "Monday",
-        "nmonth" => "Magh",
+        "mname" => "Magh",
         "num_day" => 2,
     ];
 
@@ -27,7 +27,7 @@ it('convert today nepali date to english', function () {
         "month" => 1,
         "date" => "17",
         "day" => "Monday",
-        "emonth" => "January",
+        "mname" => "January",
         "num_day" => 2,
     ];
 
