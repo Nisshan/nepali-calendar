@@ -8,7 +8,7 @@ it('converts to default format when format is not passed', function () {
 });
 
 it('converts to date in same format as passed in', function () {
-    $nepaliDate = DateConversion::convert('2022-1-17','Y M d')->toNepali();
+    $nepaliDate = DateConversion::convert('2022-1-17', 'Y M d')->toNepali();
     $this->assertEquals('2078 Magh 03', $nepaliDate);
 });
 

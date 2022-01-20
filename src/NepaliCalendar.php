@@ -189,9 +189,6 @@ class NepaliCalendar
             6 => "Friday",
             7 => "Saturday",
         ][$day];
-
-
-
     }
 
     private function getEnglishMonth(int $month): string
