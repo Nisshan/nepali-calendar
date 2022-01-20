@@ -16,11 +16,10 @@ class DateConversion
     {
         $this->date = $date;
         $this->format = $format;
-
     }
 
     #[Pure]
-    public static function convert($date, $format= null): self
+    public static function convert($date, $format = null): self
     {
         return new static($date, $format);
     }
@@ -47,7 +46,7 @@ class DateConversion
     {
         $dateFormat = $this->explodeFormat();
 
-        return collect($dateFormat)->reduce(function ($formatedDate, $part) use($date){
+        return collect($dateFormat)->reduce(function ($formatedDate, $part) use ($date) {
             return $formatedDate . $this->dateLookupTable($date, $part);
         });
     }
@@ -57,21 +56,20 @@ class DateConversion
         return explode('-', $this->date);
     }
 
-    private function explodeFormat() : array
+    private function explodeFormat(): array
     {
-        $format =  $this->format ?: config('nepali-calendar.date-format');
+        $format = $this->format ?: config('nepali-calendar.date-format');
 
         return str_split($format);
     }
 
-    private function dateLookupTable($date, $format) : string|null
+    private function dateLookupTable($date, $format): string|null
     {
-        if(!in_array($format, ['Y','M','D','d','m','y']))
-        {
+        if (! in_array($format, ['Y','M','D','d','m','y'])) {
             return $format;
         }
 
-       return [
+        return [
             'Y' => $date['year'],
             'y' => $date['year'],
             'M' => $date['mname'],
@@ -80,6 +78,4 @@ class DateConversion
             'm' => $date['month'],
         ][$format];
     }
-
-
 }
