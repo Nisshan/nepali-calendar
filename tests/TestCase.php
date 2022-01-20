@@ -36,12 +36,12 @@ class TestCase extends Orchestra
         */
     }
 
-    public function getFirstNepaliInValidYear() : int
+    public function getFirstNepaliInValidYear(): int
     {
         return $this->dates[0][0] - 1;
     }
 
-    public function getLastNepaliInValidYear() : int
+    public function getLastNepaliInValidYear(): int
     {
         return end($this->dates)[0] + 1;
     }

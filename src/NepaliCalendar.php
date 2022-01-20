@@ -8,7 +8,8 @@ class NepaliCalendar
 {
     private array $nepaliDates;
 
-    public function __construct(){
+    public function __construct()
+    {
         $this->nepaliDates = config('nepali-calendar.nepali-dates');
     }
 
@@ -228,7 +229,6 @@ class NepaliCalendar
 
     private function isInEnglishRange(int $yy, int $mm, int $dd): bool
     {
-
         if ($yy < $this->getFirstEnglishInvalidYear() || $yy > $this->getLastEnglishInvalidYear()) {
             throw new InvalidArgumentException('Invalid Date Provided');
         }
@@ -244,7 +244,7 @@ class NepaliCalendar
 
     private function isInNepaliRange(int $yy, int $mm, int $dd): bool
     {
-        if ($yy <  $this->getFirstNepaliInValidYear() || $yy > $this->getLastNepaliInValidYear() ) {
+        if ($yy < $this->getFirstNepaliInValidYear() || $yy > $this->getLastNepaliInValidYear()) {
             throw new InvalidArgumentException('Invalid Date Provided');
         }
         if ($mm < 1 || $mm > 12) {
@@ -274,27 +274,26 @@ class NepaliCalendar
         }
     }
 
-
-    private function getLastNepaliInValidYear() : int
+    private function getLastNepaliInValidYear(): int
     {
         return end($this->nepaliDates)[0];
     }
 
-    private function getFirstNepaliInValidYear() : int
+    private function getFirstNepaliInValidYear(): int
     {
         return $this->nepaliDates[0][0];
     }
 
-    private function getLastEnglishInvalidYear() : int
+    private function getLastEnglishInvalidYear(): int
     {
-        $date = $this->nepaliToEnglish($this->getLastNepaliInValidYear(), 1,1);
+        $date = $this->nepaliToEnglish($this->getLastNepaliInValidYear(), 1, 1);
 
         return $date['year'];
     }
 
-    private  function getFirstEnglishInvalidYear() : int
+    private function getFirstEnglishInvalidYear(): int
     {
-        $date = $this->nepaliToEnglish($this->getFirstNepaliInValidYear(), 1,1);
+        $date = $this->nepaliToEnglish($this->getFirstNepaliInValidYear(), 1, 1);
 
         return $date['year'];
     }

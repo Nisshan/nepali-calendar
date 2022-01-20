@@ -2,8 +2,6 @@
 
 use Nisshan\NepaliCalendar\NepaliCalendar;
 
-
-
 it('convert today english date to nepali', function () {
     $cal = new NepaliCalendar();
     $nepaliDate = $cal->englishToNepali(2022, 1, 17);
@@ -38,13 +36,13 @@ it('convert today nepali date to english', function () {
 
 it('throws exception when english date is smaller then first nepali date in config', function () {
     $cal = new NepaliCalendar();
-    $firstEnglishDate = $cal->nepaliToEnglish($this->getFirstNepaliInValidYear(), 1 , 1);
+    $firstEnglishDate = $cal->nepaliToEnglish($this->getFirstNepaliInValidYear(), 1, 1);
     $cal->englishToNepali($firstEnglishDate['year'], 1, 1);
 })->throws(InvalidArgumentException::class, 'Invalid Date Provided');
 
 it('throws exception when english date is greater than equivalent last nepali date from config', function () {
     $cal = new NepaliCalendar();
-    $lastEnglishDate = $cal->nepaliToEnglish($this->getLastNepaliInValidYear(), 1 , 1);
+    $lastEnglishDate = $cal->nepaliToEnglish($this->getLastNepaliInValidYear(), 1, 1);
     $cal->englishToNepali($lastEnglishDate['year'], 1, 1);
 })->throws(InvalidArgumentException::class, 'Invalid Date Provided');
 
@@ -99,5 +97,3 @@ it('throws exception when nepali day is greater than than 32', function () {
     $cal = new NepaliCalendar();
     $cal->nepaliToEnglish(2078, 12, 33);
 })->throws(InvalidArgumentException::class, 'Nepali Day can only contain value from 1-32');
-
-
