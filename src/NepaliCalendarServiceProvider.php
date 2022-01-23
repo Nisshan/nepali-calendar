@@ -2,7 +2,6 @@
 
 namespace Nisshan\NepaliCalendar;
 
-use Nisshan\NepaliCalendar\Commands\NepaliCalendarCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
