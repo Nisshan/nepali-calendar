@@ -7,8 +7,6 @@
 
 This is a laravel package that converts English date to Nepali and vice versa.
 
-#Note : This Package will only work for php
-
 ## Installation
 
 You can install the package via composer:
@@ -27,30 +25,72 @@ This is the contents of the published config file:
 
 ```php
 return [
-    'date-separator' => 'symbol used to separate date - by default',
+    'date-format' => 'Y m, d is default format',
     
     'nepali-dates' => 'array of nepali dates'
 ];
 ```
 
-
-
-
 ## Usage
 
 ```php
-toNepaliDate(year: $year, month: $month, day: $day); => 'Year-Month-Day'
+toNepaliDate('2022-1-17'); => '2078 10, 03'
+
+toNepaliDate('2022-1-17', 'Y, m d, D'); => '2078, 10 03, Monday'
 ```
 
 to convert to Nepali Date from English and
 
 ```php
-toEnglishDate(year: $year, month: $month, day: $day, separator: '/'); => 'Year/Month/Day'
+toEnglishDate('2078-10-03'); => '2022 1, 17'
+
+toEnglishDate('2078-10-03', 'Y, m d, D'); => '2022, 1 17, Monday'
 ```
 
 to convert to English from Nepali date. 
-The separator parameter is optional which format the date if not passed will be used from configuration file. 
+The date Format parameter is optional which format the date if not passed will be used from configuration file. 
+The above two implements shows how you can pass the english date to the function with or without a separator that
+changes helps in separating the date using Helper file or you can also convert the date as
 
+```php
+
+use Nisshan\NepaliCalendar\DateConversion;
+
+$nepaliDate = DateConversion::convert('2022-1-17')->toNepali();
+$nepaliDateWithFormat = DateConversion::convert('2022-1-17','Y, m d, D')->toNepali();
+
+
+$englishDate = DateConversion::convert('2078-10-03')->toNepali();
+$englishWithFormat = DateConversion::convert('2078-10-03','Y, m d, D')->toNepali();
+
+```
+It will give same output as helper function.
+
+## Format that you can use
+
+currently, I have used ['Y','M','D','d','m','y'] as date formatter you can use any combination of the following to output formatted date.
+
+
+```php
+
+  'Y','Y'  => 'Year',
+  'M'      => 'Month Name',
+  'D'      => 'Name of Week Day',
+  'd'      => 'date',
+  'm'      => 'month'
+
+```
+
+## Roadmap for next version
+
+I have worked in 2-3 system where nepali date is required, and I only had to convert to and from dates so currently only had that function but I have some other use case that might be helpful to another projects and myself in near future so will think on them and work on them
+
+- Find better way to format the date
+- Converting dates to nepali(font)
+
+## Thank you note
+
+If you are here by any chance and using my package I would like to thank you and would love to accept  PR on improvement of code or new features. Thank you.
 
 ## Testing
 

@@ -17,9 +17,6 @@ class NepaliCalendarServiceProvider extends PackageServiceProvider
          */
         $package
             ->name('nepali-calendar')
-            ->hasConfigFile()
-            ->hasViews()
-            ->hasMigration('create_nepali-calendar_table')
-            ->hasCommand(NepaliCalendarCommand::class);
+            ->hasConfigFile();
     }
 }
