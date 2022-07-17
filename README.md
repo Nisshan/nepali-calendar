@@ -73,20 +73,13 @@ currently, I have used ['Y','M','D','d','m','y'] as date formatter you can use a
 
 ```php
 
-  'Y','Y'  => 'Year',
+  'Y','y'  => 'Year',
   'M'      => 'Month Name',
+  'm'      => 'month'
   'D'      => 'Name of Week Day',
   'd'      => 'date',
-  'm'      => 'month'
 
 ```
-
-## Roadmap for next version
-
-I have worked in 2-3 system where nepali date is required, and I only had to convert to and from dates so currently only had that function but I have some other use case that might be helpful to another projects and myself in near future so will think on them and work on them
-
-- Find better way to format the date
-- Converting dates to nepali(font)
 
 ## Thank you note
 
