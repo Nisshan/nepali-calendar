@@ -8,7 +8,7 @@ use Orchestra\Testbench\TestCase as Orchestra;
 
 class TestCase extends Orchestra
 {
-    protected array $dates ;
+    protected array $dates;
 
     protected function setUp(): void
     {

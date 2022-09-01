@@ -7,12 +7,12 @@ it('convert today english date to nepali', function () {
     $nepaliDate = $cal->englishToNepali(2022, 1, 17);
 
     $expectedNepaliDate = [
-        "year" => 2078,
-        "month" => 10,
-        "date" => "03",
-        "day" => "Monday",
-        "mname" => "Magh",
-        "num_day" => 2,
+        'year'    => 2078,
+        'month'   => 10,
+        'date'    => '03',
+        'day'     => 'Monday',
+        'mname'   => 'Magh',
+        'num_day' => 2,
     ];
 
     $this->assertEquals($expectedNepaliDate, $nepaliDate);
@@ -23,12 +23,12 @@ it('convert today nepali date to english', function () {
     $englishDate = $cal->nepaliToEnglish(2078, 10, 3);
 
     $expectedEnglishDate = [
-        "year" => 2022,
-        "month" => 1,
-        "date" => "17",
-        "day" => "Monday",
-        "mname" => "January",
-        "num_day" => 2,
+        'year'    => 2022,
+        'month'   => 1,
+        'date'    => '17',
+        'day'     => 'Monday',
+        'mname'   => 'January',
+        'num_day' => 2,
     ];
 
     $this->assertEquals($expectedEnglishDate, $englishDate);

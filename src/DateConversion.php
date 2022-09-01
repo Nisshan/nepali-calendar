@@ -41,7 +41,7 @@ class DateConversion
         $dateFormat = $this->explodeFormat();
 
         return collect($dateFormat)->reduce(function ($formatedDate, $part) use ($date) {
-            return $formatedDate . $this->dateLookupTable($date, $part);
+            return $formatedDate.$this->dateLookupTable($date, $part);
         });
     }
 
@@ -59,7 +59,7 @@ class DateConversion
 
     private function dateLookupTable($date, $format): string|null
     {
-        if (! in_array($format, ['Y','M','D','d','m','y'])) {
+        if (!in_array($format, ['Y', 'M', 'D', 'd', 'm', 'y'])) {
             return $format;
         }
 
