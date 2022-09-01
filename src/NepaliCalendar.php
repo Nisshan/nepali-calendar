@@ -22,7 +22,7 @@ class NepaliCalendar
         $checkRange = $this->isInEnglishRange($yy, $mm, $dd);
 
         if ($checkRange !== true) {
-            die($checkRange);
+            exit($checkRange);
         }
 
         // Month data.
@@ -50,7 +50,6 @@ class NepaliCalendar
                 }
             }
         }
-
 
         // Count total no. of days in-terms of month
         for ($i = 0; $i < ($mm - 1); $i++) {
@@ -102,8 +101,8 @@ class NepaliCalendar
 
         $numDay = $day;
         $this->nepaliDate['year'] = $y;
-        $this->nepaliDate['month'] = $m <= 9 ? "0" . $m : $m;
-        $this->nepaliDate['date'] = $total_nDays <= 9 ? "0" . $total_nDays : $total_nDays;
+        $this->nepaliDate['month'] = $m <= 9 ? '0'.$m : $m;
+        $this->nepaliDate['date'] = $total_nDays <= 9 ? '0'.$total_nDays : $total_nDays;
         $this->nepaliDate['day'] = $this->getDateOfWeek($day);
         $this->nepaliDate['mname'] = $this->getNepaliMonthName($m);
         $this->nepaliDate['num_day'] = $numDay;
@@ -125,7 +124,7 @@ class NepaliCalendar
         // Check for date range
         $check = $this->isInNepaliRange($yy, $mm, $dd);
         if ($check !== true) {
-            die($check);
+            exit($check);
         }
 
         // Count total days in-terms of year
@@ -181,49 +180,49 @@ class NepaliCalendar
     private function getDateOfWeek(int $day): string
     {
         return[
-            1 => "Sunday",
-            2 => "Monday",
-            3 => "Tuesday",
-            4 => "Wednesday",
-            5 => "Thursday",
-            6 => "Friday",
-            7 => "Saturday",
+            1 => 'Sunday',
+            2 => 'Monday',
+            3 => 'Tuesday',
+            4 => 'Wednesday',
+            5 => 'Thursday',
+            6 => 'Friday',
+            7 => 'Saturday',
         ][$day];
     }
 
     private function getEnglishMonth(int $month): string
     {
         return [
-            1 => "January",
-            2 => "February",
-            3 => "March",
-            4 => "April",
-            5 => "May",
-            6 => "June",
-            7 => "July",
-            8 => "August",
-            9 => "September",
-            10 => "October",
-            11 => "November",
-            12 => "December",
+            1 => 'January',
+            2 => 'February',
+            3 => 'March',
+            4 => 'April',
+            5 => 'May',
+            6 => 'June',
+            7 => 'July',
+            8 => 'August',
+            9 => 'September',
+            10 => 'October',
+            11 => 'November',
+            12 => 'December',
         ][$month];
     }
 
     private function getNepaliMonthName(int $month): string
     {
         return [
-            1 => "Baishak",
-            2 => "Jestha",
-            3 => "Ashad",
-            4 => "Shrawn",
-            5 => "Bhadra",
-            6 => "Ashwin",
-            7 => "kartik",
-            8 => "Mangshir",
-            9 => "Poush",
-            10 => "Magh",
-            11 => "Falgun",
-            12 => "Chaitra",
+            1 => 'Baishak',
+            2 => 'Jestha',
+            3 => 'Ashad',
+            4 => 'Shrawn',
+            5 => 'Bhadra',
+            6 => 'Ashwin',
+            7 => 'kartik',
+            8 => 'Mangshir',
+            9 => 'Poush',
+            10 => 'Magh',
+            11 => 'Falgun',
+            12 => 'Chaitra',
         ][$month];
     }
 
