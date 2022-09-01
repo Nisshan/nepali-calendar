@@ -59,7 +59,7 @@ class DateConversion
 
     private function dateLookupTable($date, $format): string|null
     {
-        if (!in_array($format, ['Y', 'M', 'D', 'd', 'm', 'y'])) {
+        if (! in_array($format, ['Y', 'M', 'D', 'd', 'm', 'y'])) {
             return $format;
         }
 
